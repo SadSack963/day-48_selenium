@@ -1,9 +1,5 @@
-# import selenium
+# import selenium  # used only to get selenium installed
 from selenium import webdriver
-import os
-from dotenv import load_dotenv
-
-load_dotenv("E:/Python/EnvironmentVariables/.env")
 
 chrome_driver_path = "E:/Python/WebDriver/chromedriver.exe"
 firefox_driver_path = "E:/Python/WebDriver/geckodriver.exe"
