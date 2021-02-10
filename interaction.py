@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 
 chrome_driver_path = "E:/Python/WebDriver/chromedriver.exe"
 firefox_driver_path = "E:/Python/WebDriver/geckodriver.exe"
@@ -23,8 +24,20 @@ https://saucelabs.com/resources/articles/selenium-tips-css-selectors
 """
 
 # stats = driver.find_element_by_id("articlecount").find_element_by_tag_name("a")
-stats = driver.find_element_by_css_selector("#articlecount a")
-print(int(stats.text.replace(",", "")))
+# stats = driver.find_element_by_css_selector("#articlecount a")
+# print(int(stats.text.replace(",", "")))
+# stats.click()
+
+# all_portals = driver.find_element_by_link_text("All portals")
+# all_portals.click()
+
+# search_input = driver.find_element_by_id("searchInput")
+# search_input.send_keys("Python")
+# driver.find_element_by_id("searchButton").click()
+
+search = driver.find_element_by_name("search")
+search.send_keys("Python" + Keys.ENTER)
 
 
-driver.quit()  # Close the entire browser
+
+# driver.quit()  # Close the entire browser
