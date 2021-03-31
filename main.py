@@ -41,7 +41,8 @@ driver = webdriver.Chrome(executable_path=chrome_driver_path)
 # Get Upcoming Events from python.org
 
 driver.get("https://www.python.org")
-list_time = driver.find_elements_by_css_selector(".event-widget time")  # find all time tags inside event-widget class
+list_time = driver.find_elements_by_css_selector(
+    ".event-widget time")  # find all time tags inside event-widget class
 list_name = driver.find_elements_by_css_selector(
     ".event-widget li a")  # find all a tags inside li tags inside event-widget class
 events = {}

@@ -29,8 +29,11 @@ cookie = driver.find_element_by_id("cookie")
 
 def click_cookie(seconds):
     stop_time = time.time_ns() + seconds * 10**9
+    count = 0
     while stop_time > time.time_ns():
+        count += 1
         cookie.click()  # 216, 238, 248 clicks per second
+    print(f'{count / seconds} clicks per second')
 
 
 def buy_most_expensive_item():
