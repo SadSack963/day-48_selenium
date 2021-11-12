@@ -3,12 +3,14 @@ from selenium import webdriver
 import time
 
 
-chrome_driver_path = "E:/Python/WebDriver/chromedriver.exe"
-firefox_driver_path = "E:/Python/WebDriver/geckodriver.exe"
-opera_driver_path = "E:/Python/WebDriver/operadriver.exe"
+# chrome_driver_path = "E:/Python/WebDriver/chromedriver.exe"
 # driver = webdriver.Chrome(executable_path=chrome_driver_path)
-# driver = webdriver.Firefox(executable_path=firefox_driver_path)
-driver = webdriver.Opera(executable_path=opera_driver_path)
+
+firefox_driver_path = "E:/Python/WebDriver/geckodriver.exe"
+driver = webdriver.Firefox(executable_path=firefox_driver_path)
+
+# opera_driver_path = "E:/Python/WebDriver/operadriver.exe"
+# driver = webdriver.Opera(executable_path=opera_driver_path)
 
 driver.get("https://orteil.dashnet.org/experiments/cookie/")
 
@@ -25,6 +27,7 @@ item_names = [
 ]
 items = [None] * len(item_names)
 cookie = driver.find_element_by_id("cookie")
+# print(cookie, dir(cookie))
 
 
 def click_cookie(seconds):
