@@ -1,5 +1,5 @@
 from selenium import webdriver
-# from selenium.common.exceptions import StaleElementReferenceException
+from selenium.common.exceptions import StaleElementReferenceException, NoSuchElementException
 import time
 
 
@@ -50,6 +50,17 @@ items = [None] * len(item_names)
 # Find the Cookie
 # cookie = driver.find_element_by_id("cookie")  # id altered
 cookie = driver.find_element_by_id("bigCookie")
+
+
+def get_cookies_total():
+    while True:
+        try:
+            # cookies = driver.find_element_by_id("cookiea")
+            cookies = driver.find_element_by_xpath('/html/body/div[2]/div[2]/div[15]/div[4]')
+            print(cookies.text)
+            break
+        except NoSuchElementException:
+            pass
 
 
 def click_cookie(seconds):
@@ -107,5 +118,6 @@ delay = 1.0  # Initial seconds
 while run_time > time.time_ns():
     print(f'Waiting {delay:.3f} seconds before buying the most expensive item')
     click_cookie(seconds=delay)
+    # get_cookies_total()  # Not possible. The script is constantly updating the element.
     delay = buy_most_expensive_item(delay)
 driver.get_screenshot_as_file("screenshot.png")
